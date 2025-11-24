@@ -1,0 +1,6 @@
+# Archivos temporales
+*.log
+*.tmp
+
+# No ignorar el JAR ya que es necesario para el despliegue
+# !lib/linea.jar

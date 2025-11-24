@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuatro en Línea - Juego Web</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        #container {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        #loading {
+            color: white;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        
+        #cheerpjDisplay {
+            border: 3px solid white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: white;
+            display: inline-block;
+        }
+        
+        #cheerpjDisplay canvas {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            color: #ff6b6b;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px;
+            max-width: 600px;
+        }
+        
+        #instructions {
+            color: white;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>🎮 Cuatro en Línea</h1>
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>Cargando juego...</p>
+        </div>
+        <div id="cheerpjDisplay"></div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="instructions">
+            <p><strong>Instrucciones:</strong></p>
+            <p>El juego se está cargando. Una vez que aparezca la ventana del juego, podrás interactuar con él normalmente.</p>
+            <p>Si experimentas problemas, asegúrate de tener una conexión a internet estable para cargar CheerpJ.</p>
+        </div>
+    </div>
+
+    <!-- CheerpJ Runtime -->
+    <script src="https://cjrtnc.leaningtech.com/4.2/loader.js"></script>
+    
+    <script>
+        (async function() {
+            try {
+                // Inicializar CheerpJ
+                await cheerpjInit({
+                    jrePath: "https://cjrtnc.leaningtech.com/4.2/jre",
+                    memoryMB: 512
+                });
+                
+                console.log("CheerpJ inicializado");
+                
+                // Crear display de 800x800 (tamaño de la ventana del juego)
+                cheerpjCreateDisplay(800, 800);
+                
+                console.log("Display creado");
+                
+                // Ejecutar el JAR (tiene Main-Class definido en el manifest)
+                await cheerpjRunJar("lib/linea.jar");
+                
+                console.log("Juego iniciado exitosamente");
+                document.getElementById("loading").style.display = "none";
+                
+            } catch (error) {
+                console.error("Error:", error);
+                showError("Error al cargar el juego: " + (error.message || error));
+            }
+        })();
+
+        function showError(message) {
+            document.getElementById("loading").style.display = "none";
+            const errorDiv = document.getElementById("error");
+            errorDiv.style.display = "block";
+            errorDiv.textContent = message;
+        }
+    </script>
+</body>
+</html>
