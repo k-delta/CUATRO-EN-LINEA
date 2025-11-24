@@ -40,21 +40,25 @@ git commit -m "Agregar despliegue web con CheerpJ para GitHub Pages"
 git push origin main
 ```
 
-## ⚙️ Paso 5: Configurar GitHub Pages (desde GitHub)
+## ⚙️ Paso 5: Configurar GitHub Pages (desde GitHub) ⚠️ OBLIGATORIO
 
-### Opción A: GitHub Pages desde carpeta `/web`
+**IMPORTANTE**: Debes habilitar GitHub Pages desde la interfaz web ANTES de que funcione.
+
+### Configurar GitHub Pages Manualmente
 
 1. Ve a tu repositorio en GitHub: `https://github.com/k-delta/CUATRO-EN-LINEA`
 2. Haz clic en **Settings** (Configuración)
 3. En el menú lateral, busca **Pages** (en la sección "Code and automation")
-4. En **Source** (Fuente), selecciona:
-   - **Branch**: `main`
-   - **Folder**: `/web`
+4. En **Build and deployment**:
+   - **Source**: Selecciona "Deploy from a branch"
+   - **Branch**: Selecciona `main`
+   - **Folder**: Selecciona `/web` ⚠️ **MUY IMPORTANTE**
 5. Haz clic en **Save** (Guardar)
+6. Espera 1-2 minutos para que se habilite
 
-### Opción B: Usar GitHub Actions (Recomendado)
+### Después de Habilitar: GitHub Actions (Opcional)
 
-Si prefieres automatizar el despliegue, se ha creado un workflow en `.github/workflows/deploy-pages.yml`.
+Una vez habilitado GitHub Pages, el workflow en `.github/workflows/deploy-pages.yml` funcionará automáticamente en futuros pushes.
 
 ## 🌐 Paso 6: Acceder al juego
 
