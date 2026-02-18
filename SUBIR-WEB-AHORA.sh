@@ -1,34 +1,34 @@
 #!/bin/bash
-# Script para subir la carpeta web/ a GitHub AHORA
+# Script para subir la carpeta docs/ a GitHub AHORA
 
 set -e  # Salir si hay error
 
-echo "🚀 Subiendo carpeta web/ a GitHub"
+echo "🚀 Subiendo carpeta docs/ a GitHub"
 echo "==================================="
 echo ""
 
 # Verificar que estamos en el directorio correcto
-if [ ! -d "web" ]; then
-    echo "❌ Error: No se encontró la carpeta web/"
+if [ ! -d "docs" ]; then
+    echo "❌ Error: No se encontró la carpeta docs/"
     exit 1
 fi
 
 # Asegurar que el JAR existe
-if [ ! -f "web/lib/linea.jar" ]; then
+if [ ! -f "docs/lib/linea.jar" ]; then
     echo "📦 Copiando JAR..."
     if [ -f "linea.jar" ]; then
-        mkdir -p web/lib
-        cp linea.jar web/lib/
+        mkdir -p docs/lib
+        cp linea.jar docs/lib/
         echo "✅ JAR copiado"
     else
         echo "⚠️  Advertencia: linea.jar no encontrado"
     fi
 fi
 
-# Agregar TODOS los archivos de web/
+# Agregar TODOS los archivos de docs/
 echo ""
-echo "➕ Agregando todos los archivos de web/ a git..."
-git add -A web/
+echo "➕ Agregando todos los archivos de docs/ a git..."
+git add -A docs/
 
 # Agregar .gitignore si tiene cambios
 git add .gitignore 2>/dev/null || true
@@ -36,7 +36,7 @@ git add .gitignore 2>/dev/null || true
 # Ver estado
 echo ""
 echo "📋 Estado de los archivos:"
-git status --short | grep -E "web/|\.gitignore" | head -10
+git status --short | grep -E "docs/|\.gitignore" | head -10
 
 # Hacer commit si hay cambios
 echo ""
@@ -54,7 +54,7 @@ if git diff --staged --quiet; then
     fi
 else
     echo "💾 Haciendo commit de los cambios..."
-    git commit -m "Agregar/sincronizar archivos web para GitHub Pages"
+    git commit -m "Agregar/sincronizar archivos docs para GitHub Pages"
     PUSH_ONLY=false
 fi
 
@@ -79,10 +79,10 @@ echo ""
 echo "   2. REFRESCA la página (F5 o Ctrl+R)"
 echo ""
 echo "   3. En 'Build and deployment' → 'Folder':"
-echo "      - Deberías ver la opción '/web' disponible ahora"
+echo "      - Deberías ver la opción '/docs' disponible ahora"
 echo "      - Si no aparece, espera 30 segundos y refresca de nuevo"
 echo ""
-echo "   4. Selecciona '/web' y haz clic en 'Save'"
+echo "   4. Selecciona '/docs' y haz clic en 'Save'"
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""

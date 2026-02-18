@@ -1,23 +1,23 @@
 #!/bin/bash
-# Script para preparar y subir los archivos web a GitHub
+# Script para preparar y subir los archivos docs a GitHub
 
 echo "🚀 Preparando archivos para GitHub Pages"
 echo "=========================================="
 echo ""
 
-# 1. Preparar archivos web
-echo "📦 Paso 1: Preparando archivos web..."
-cd web
+# 1. Preparar archivos docs
+echo "📦 Paso 1: Preparando archivos docs..."
+cd docs
 ./prepare.sh
 cd ..
 
 # 2. Verificar que el JAR existe
-if [ ! -f "web/lib/linea.jar" ]; then
-    echo "❌ Error: web/lib/linea.jar no existe"
+if [ ! -f "docs/lib/linea.jar" ]; then
+    echo "❌ Error: docs/lib/linea.jar no existe"
     echo "   Copiando desde linea.jar..."
     if [ -f "linea.jar" ]; then
-        mkdir -p web/lib
-        cp linea.jar web/lib/
+        mkdir -p docs/lib
+        cp linea.jar docs/lib/
         echo "✅ JAR copiado"
     else
         echo "❌ Error: linea.jar no encontrado en la raíz"
@@ -25,10 +25,10 @@ if [ ! -f "web/lib/linea.jar" ]; then
     fi
 fi
 
-# 3. Agregar TODOS los archivos de web/ a git
+# 3. Agregar TODOS los archivos de docs/ a git
 echo ""
 echo "➕ Paso 2: Agregando archivos a git..."
-git add web/
+git add docs/
 
 # 4. Agregar otros archivos necesarios
 git add .gitignore
@@ -57,8 +57,8 @@ echo ""
 echo "📝 AHORA puedes:"
 echo "   1. Ve a: https://github.com/k-delta/CUATRO-EN-LINEA/settings/pages"
 echo "   2. Refresca la página"
-echo "   3. En 'Folder', ahora deberías ver la opción '/web'"
-echo "   4. Selecciona '/web' y haz clic en 'Save'"
+echo "   3. En 'Folder', ahora deberías ver la opción '/docs'"
+echo "   4. Selecciona '/docs' y haz clic en 'Save'"
 echo ""
 echo "🌐 Tu juego estará en: https://k-delta.github.io/CUATRO-EN-LINEA/"
 

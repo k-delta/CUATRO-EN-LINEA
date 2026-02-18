@@ -12,15 +12,15 @@ if [ ! -f "linea.jar" ]; then
     exit 1
 fi
 
-# Preparar archivos web
-echo "📦 Preparando archivos web..."
-cd web
+# Preparar archivos docs
+echo "📦 Preparando archivos docs..."
+cd docs
 ./prepare.sh
 cd ..
 
 echo ""
 echo "📋 Archivos listos para commit:"
-git status --short web/ .gitignore .github/ 2>/dev/null | head -10
+git status --short docs/ .gitignore .github/ 2>/dev/null | head -10
 
 echo ""
 read -p "¿Continuar con el commit y push? (s/n): " -n 1 -r
@@ -34,7 +34,7 @@ fi
 # Agregar archivos
 echo ""
 echo "➕ Agregando archivos a git..."
-git add web/
+git add docs/
 git add .gitignore
 git add .github/workflows/deploy-pages.yml 2>/dev/null
 
@@ -61,7 +61,7 @@ echo "📝 Próximos pasos:"
 echo "   1. Ve a: https://github.com/k-delta/CUATRO-EN-LINEA/settings/pages"
 echo "   2. En 'Source', selecciona:"
 echo "      - Branch: main"
-echo "      - Folder: /web"
+echo "      - Folder: /docs"
 echo "   3. Guarda los cambios"
 echo ""
 echo "🌐 Tu juego estará disponible en:"

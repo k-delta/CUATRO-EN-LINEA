@@ -12,7 +12,7 @@ Si estás viendo el error "Get Pages site failed", sigue estos pasos:
 2. En "Build and deployment":
    - Source: **"Deploy from a branch"**
    - Branch: **`main`**
-   - Folder: **`/web`** ⚠️
+   - Folder: **`/docs`** ⚠️
 3. Click **"Save"**
 4. Espera 1-2 minutos
 
@@ -23,10 +23,10 @@ Si estás viendo el error "Get Pages site failed", sigue estos pasos:
 cd /home/kt6delta/Desktop/Codes/CUATRO-EN-LINEA
 
 # Preparar archivos
-cd web && ./prepare.sh && cd ..
+cd docs && ./prepare.sh && cd ..
 
 # Agregar a git
-git add web/
+git add docs/
 git add .gitignore
 git add .github/
 

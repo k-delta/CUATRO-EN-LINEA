@@ -27,7 +27,7 @@ Este error ocurre porque **GitHub Pages no está habilitado** en tu repositorio.
 4. **En la sección "Build and deployment":**
    - **Source**: Selecciona "Deploy from a branch"
    - **Branch**: Selecciona `main`
-   - **Folder**: Selecciona `/web` ⚠️ **MUY IMPORTANTE**
+   - **Folder**: Selecciona `/docs` ⚠️ **MUY IMPORTANTE**
    - Haz clic en **"Save"**
 
 5. **Espera 1-2 minutos** para que GitHub Pages se habilite
@@ -49,7 +49,7 @@ Si prefieres no usar GitHub Actions, puedes usar el método directo:
 1. **Habilita GitHub Pages** (Paso 1 arriba)
 2. **Haz push de tus archivos:**
    ```bash
-   git add web/
+   git add docs/
    git add .gitignore
    git commit -m "Agregar despliegue web"
    git push origin main
@@ -65,8 +65,8 @@ Si prefieres no usar GitHub Actions, puedes usar el método directo:
 
 ## 🐛 Si Sigue Fallando
 
-1. Verifica que hayas seleccionado la carpeta `/web` (no `/root`)
-2. Asegúrate de que la rama `main` tenga los archivos en `web/`
+1. Verifica que hayas seleccionado la carpeta `/docs` (no `/root`)
+2. Asegúrate de que la rama `main` tenga los archivos en `docs/`
 3. Revisa los logs en **Settings → Pages → View deployment log**
 4. Espera 5-10 minutos y recarga la página de Settings
 

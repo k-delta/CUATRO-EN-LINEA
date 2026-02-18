@@ -2,7 +2,7 @@
 
 ## ✅ Lo que ya está listo
 
-1. ✅ Estructura web completa en `/web`
+1. ✅ Estructura web completa en `/docs`
 2. ✅ `.gitignore` actualizado para permitir el JAR necesario
 3. ✅ Workflow de GitHub Actions creado (opcional)
 4. ✅ Scripts de preparación y despliegue
@@ -25,14 +25,14 @@ Este script:
 
 ### Paso 1: Preparar archivos
 ```bash
-cd web
+cd docs
 ./prepare.sh
 cd ..
 ```
 
 ### Paso 2: Agregar a git
 ```bash
-git add web/
+git add docs/
 git add .gitignore
 git add .github/workflows/deploy-pages.yml
 ```
@@ -54,7 +54,7 @@ git push origin main
 3. **En el menú lateral, busca "Pages"** (en "Code and automation")
 4. **En "Source"**, selecciona:
    - **Branch**: `main`
-   - **Folder**: `/web` ⚠️ IMPORTANTE: selecciona `/web`
+   - **Folder**: `/docs` ⚠️ IMPORTANTE: selecciona `/docs`
 5. **Haz clic en "Save"**
 
 ## 🌐 Paso 6: Acceder al juego
@@ -75,10 +75,10 @@ Después de 5-10 minutos, tu juego estará disponible en:
 Solo necesitas:
 
 ```bash
-cd web
+cd docs
 ./prepare.sh
 cd ..
-git add web/
+git add docs/
 git commit -m "Actualizar juego"
 git push origin main
 ```
@@ -87,5 +87,5 @@ git push origin main
 
 ## 📚 Más Ayuda
 
-- Guía detallada: `web/DEPLOY.md`
-- Documentación: `web/README.md`
+- Guía detallada: `docs/DEPLOY.md`
+- Documentación: `docs/README.md`

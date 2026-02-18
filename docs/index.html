@@ -99,7 +99,7 @@
     <!-- CheerpJ Runtime -->
     <script src="https://cjrtnc.leaningtech.com/4.2/loader.js"></script>
     
-    <script>
+<script>
         (async function() {
             try {
                 // Inicializar CheerpJ
@@ -108,22 +108,30 @@
                     memoryMB: 512
                 });
                 
-                console.log("CheerpJ inicializado");
+                console.log("CheerpJ runtime ready");
+                document.getElementById("loading").innerHTML = "<p>CheerpJ listo. Iniciando juego...</p>";
                 
-                // Crear display de 800x800 (tamaño de la ventana del juego)
+                // Crear display de 800x800
                 cheerpjCreateDisplay(800, 800);
                 
                 console.log("Display creado");
                 
-                // Ejecutar el JAR (tiene Main-Class definido en el manifest)
+                // Intentar ejecutar el JAR
+                // Si esto falla, podría ser problema del manifest
                 await cheerpjRunJar("lib/linea.jar");
                 
-                console.log("Juego iniciado exitosamente");
+                console.log("Juego iniciado");
                 document.getElementById("loading").style.display = "none";
                 
             } catch (error) {
                 console.error("Error:", error);
-                showError("Error al cargar el juego: " + (error.message || error));
+                // Si falla el JAR, intentar de otra forma
+                try {
+                    document.getElementById("loading").innerHTML = "<p>Intentando método alternativo...</p>";
+                    await cheerpjRunMain("CuatroEnLinea.EjecutarJuego", []);
+                } catch (error2) {
+                    showError("Error al cargar el juego: " + error.message + "\n\nNota: Revisa la consola (F12) para más detalles.");
+                }
             }
         })();
 
