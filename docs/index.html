@@ -117,7 +117,8 @@
                 
                 // Intentar ejecutar el JAR
                 // Si esto falla, podría ser problema del manifest
-                await cheerpjRunJar("/app/lib/linea.jar");
+                const basePath = window.location.pathname.replace(/\/$/, '');
+                await cheerpjRunJar(`/app/${basePath}/lib/linea.jar`);
                 
                 console.log("Juego iniciado");
                 document.getElementById("loading").style.display = "none";
