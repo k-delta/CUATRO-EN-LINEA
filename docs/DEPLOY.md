@@ -4,24 +4,24 @@ Esta guía te ayudará a desplegar el juego "Cuatro en Línea" en GitHub Pages.
 
 ## 📋 Paso 1: Preparar los archivos
 
-Asegúrate de que todos los archivos necesarios estén en la carpeta `web/`:
+Asegúrate de que todos los archivos necesarios estén en la carpeta `docs/`:
 
 ```bash
-cd web
+cd docs
 ./prepare.sh
 ```
 
 Esto copiará:
-- `linea.jar` → `web/lib/linea.jar`
-- Imágenes → `web/images/`
+- `linea.jar` → `docs/lib/linea.jar`
+- Imágenes → `docs/images/`
 
 ## 📤 Paso 2: Agregar archivos a Git
 
 Desde la raíz del proyecto:
 
 ```bash
-# Agregar los archivos web
-git add web/
+# Agregar los archivos docs
+git add docs/
 git add .gitignore
 
 # Verificar lo que se va a commitear
@@ -52,7 +52,7 @@ git push origin main
 4. En **Build and deployment**:
    - **Source**: Selecciona "Deploy from a branch"
    - **Branch**: Selecciona `main`
-   - **Folder**: Selecciona `/web` ⚠️ **MUY IMPORTANTE**
+   - **Folder**: Selecciona `/docs` ⚠️ **MUY IMPORTANTE**
 5. Haz clic en **Save** (Guardar)
 6. Espera 1-2 minutos para que se habilite
 
@@ -74,14 +74,14 @@ Cada vez que hagas cambios y quieras actualizar el sitio:
 
 ```bash
 # Actualizar archivos si es necesario
-cd web
+cd docs
 ./prepare.sh
 
 # Volver a la raíz
 cd ..
 
 # Agregar cambios
-git add web/
+git add docs/
 git commit -m "Actualizar despliegue web"
 git push origin main
 ```
@@ -106,20 +106,20 @@ Tu JAR es de ~17MB, así que no hay problemas.
 
 ### El sitio no aparece
 
-1. Verifica que hayas seleccionado la carpeta `/web` como fuente
+1. Verifica que hayas seleccionado la carpeta `/docs` como fuente
 2. Espera 5-10 minutos para el primer despliegue
 3. Revisa los logs en **Settings** → **Pages** → **View deployment log**
 
 ### Error 404
 
-- Verifica que `index.html` esté en `web/index.html`
-- Asegúrate de que la carpeta `/web` sea la fuente en GitHub Pages
+- Verifica que `index.html` esté en `docs/index.html`
+- Asegúrate de que la carpeta `/docs` sea la fuente en GitHub Pages
 
 ### El juego no carga
 
 1. Abre la consola del navegador (F12) para ver errores
-2. Verifica que el JAR esté en `web/lib/linea.jar`
-3. Asegúrate de que las imágenes estén en `web/images/`
+2. Verifica que el JAR esté en `docs/lib/linea.jar`
+3. Asegúrate de que las imágenes estén en `docs/images/`
 
 ## 📚 Más información
 

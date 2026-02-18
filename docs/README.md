@@ -13,30 +13,30 @@ Este proyecto contiene la versión web del juego "Cuatro en Línea" utilizando C
 ### Opción 1: Usar el script de preparación automática
 
 ```bash
-cd web
+cd docs
 ./prepare.sh
 ```
 
 Este script:
-- Copia el archivo `linea.jar` a `web/lib/`
-- Copia las imágenes necesarias a `web/images/`
+- Copia el archivo `linea.jar` a `docs/lib/`
+- Copia las imágenes necesarias a `docs/images/`
 - Verifica que todo esté en su lugar
 
 ### Opción 2: Preparación manual
 
 1. **Copiar el JAR:**
    ```bash
-   cp linea.jar web/lib/
+   cp linea.jar docs/lib/
    ```
 
 2. **Copiar las imágenes:**
    ```bash
-   cp -r src/images/* web/images/
+   cp -r src/images/* docs/images/
    ```
 
 3. **Verificar estructura:**
    ```
-   web/
+   docs/
    ├── index.html
    ├── lib/
    │   └── linea.jar
@@ -50,7 +50,7 @@ Este script:
 ### Opción 1: Python HTTP Server
 
 ```bash
-cd web
+cd docs
 python3 -m http.server 8000
 ```
 
@@ -59,7 +59,7 @@ Luego abre: http://localhost:8000
 ### Opción 2: Node.js http-server
 
 ```bash
-cd web
+cd docs
 npx http-server -p 8000
 ```
 
@@ -68,7 +68,7 @@ Luego abre: http://localhost:8000
 ### Opción 3: PHP Built-in Server
 
 ```bash
-cd web
+cd docs
 php -S localhost:8000
 ```
 
@@ -78,31 +78,31 @@ Luego abre: http://localhost:8000
 
 ### GitHub Pages
 
-1. Sube los archivos de la carpeta `web/` a un repositorio de GitHub
+1. Sube los archivos de la carpeta `docs/` a un repositorio de GitHub
 2. Activa GitHub Pages en la configuración del repositorio
-3. Selecciona la rama y carpeta raíz (`/root` o `/web`)
+3. Selecciona la rama y carpeta raíz (`/root` o `/docs`)
 4. Accede a: `https://tu-usuario.github.io/tu-repositorio/`
 
 ### Netlify
 
 1. Instala Netlify CLI: `npm install -g netlify-cli`
-2. Desde la carpeta `web/`:
+2. Desde la carpeta `docs/`:
    ```bash
    netlify deploy
    ```
-3. O arrastra la carpeta `web/` a [app.netlify.com/drop](https://app.netlify.com/drop)
+3. O arrastra la carpeta `docs/` a [app.netlify.com/drop](https://app.netlify.com/drop)
 
 ### Vercel
 
 1. Instala Vercel CLI: `npm install -g vercel`
-2. Desde la carpeta `web/`:
+2. Desde la carpeta `docs/`:
    ```bash
    vercel
    ```
 
 ### Otro servidor web
 
-Simplemente sube todos los archivos de la carpeta `web/` a tu servidor web usando FTP, SCP, o el método que prefieras.
+Simplemente sube todos los archivos de la carpeta `docs/` a tu servidor web usando FTP, SCP, o el método que prefieras.
 
 ## ⚙️ Configuración
 
@@ -130,13 +130,13 @@ await cheerpjInit({
 ### El juego no carga
 
 1. **Verifica la consola del navegador** (F12) para ver errores
-2. **Verifica que el JAR esté en** `web/lib/linea.jar`
+2. **Verifica que el JAR esté en** `docs/lib/linea.jar`
 3. **Asegúrate de tener conexión a internet** (CheerpJ se carga desde CDN)
 4. **Verifica que estés usando un servidor web** (no puedes abrir `index.html` directamente con `file://`)
 
 ### Las imágenes no aparecen
 
-1. Verifica que las imágenes estén en `web/images/`
+1. Verifica que las imágenes estén en `docs/images/`
 2. Asegúrate de que el JAR contenga las imágenes embebidas (si las carga desde recursos)
 3. Revisa la consola del navegador para errores 404 de recursos
 
