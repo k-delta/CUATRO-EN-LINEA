@@ -104,7 +104,6 @@
             try {
                 // Inicializar CheerpJ
                 await cheerpjInit({
-                    jrePath: "https://cjrtnc.leaningtech.com/4.2/jre",
                     memoryMB: 512
                 });
                 
@@ -118,7 +117,7 @@
                 
                 // Intentar ejecutar el JAR
                 // Si esto falla, podría ser problema del manifest
-                await cheerpjRunJar("lib/linea.jar");
+                await cheerpjRunJar("/app/lib/linea.jar");
                 
                 console.log("Juego iniciado");
                 document.getElementById("loading").style.display = "none";
